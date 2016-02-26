@@ -55,19 +55,20 @@ namespace UnityPositionCalculator
         {
             get
             {
-                float result = ImageY + (ScreenHeight / 2f);
+                float result = ImageY - (ScreenHeight / 2f);
                 switch (ImagePivotVar)
                 {
                     case PivotVar.Top:
                         break;
                     case PivotVar.Mid:
                     default:
-                        result -= ImageHeight / 2f;
+                        result += ImageHeight / 2f;
                         break;
                     case PivotVar.Bottom:
-                        result -= ImageHeight;
+                        result += ImageHeight;
                         break;
                 }
+                result *= -1;
                 return result;
             }
         }
